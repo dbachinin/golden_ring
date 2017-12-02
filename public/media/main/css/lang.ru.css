@@ -1,0 +1,70 @@
+.bestrate .from{
+font-size:0.75em;
+}
+.bestrate .price {
+  font-size: 1.8em;
+  left: 77px;
+  top: 13px;
+}
+.bestrate .label{
+ width:52px;
+/*  font-size:0.65em; */
+}
+.bestrate .rate{
+left:128px;
+}
+.detail .text{
+width:163px;
+}
+.landmarks .title{
+font-size:0.85em;
+}
+#page_photos .bookingmask {
+   width: 323px;
+}
+#page_photos .bookingmask #booking-form button{
+left:225px;
+}
+
+/* Portrait tablet to landscape and desktop */
+@media (min-width: 768px) and (max-width: 1023px) {
+
+.main-nav > ul > li.level1 > a {
+    padding: 0 3px!important;
+}
+	
+.main-nav > ul > li.level1 > a {
+  font-size: 0.53em;
+  }
+#footer .address {
+  font-size: 0.58em;
+ }  
+ 
+ #page_home h1 {
+  font-size: 2em;
+  }
+}
+/* Landscape tablet to desktop small screens */
+@media (min-width: 1024px) and (max-width: 1200px) {
+	.main-nav > ul > li.level1 > a {
+  font-size: 0.7em;
+   padding: 0 4px!important;
+   letter-spacing:0;
+}
+	#footer .address {
+	  font-size: 0.608em;
+	 }
+	#page_photos .bookingmask #booking-form button{
+	font-size: 0.9em;
+	}	 
+}
+/* Landscape phone to portrait tablet */
+@media (max-width: 767px) {
+.checkrates .rate {
+    margin: 8px 0 0 33px;
+}
+.specialsRotator .learnMore{
+	width:100%;
+}
+	
+	}

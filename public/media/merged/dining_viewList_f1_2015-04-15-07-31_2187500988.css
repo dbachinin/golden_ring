@@ -1,0 +1,28 @@
+
+/***************  templates/moduleThemes/default/pukkaRestaurants/style.viewList.css  ***************/
+		#mod_pukkaRestaurants .itemPreview .accordion-content { height: auto; padding: 27px 20px 26px 23px; position: relative; overflow: hidden; margin: 20px 15px;}
+			#mod_pukkaRestaurants .itemContent { overflow:hidden; height:auto;}
+			#mod_pukkaRestaurants .meetingContact{ display: none; }
+			#mod_pukkaRestaurants .itemContent span.content:after{background-image: -moz-linear-gradient(top, rgba(255,255,255,0), #e3e3e3); background-image: -ms-linear-gradient(top, rgba(255,255,255,0), #e3e3e3); background-image: -o-linear-gradient(top, rgba(255,255,255,0), #e3e3e3); background-image: -webkit-gradient(inear, center top, center bottom, from(rgba(255,255,255,0)), to(#e3e3e3)); background-image: -webkit-linear-gradient(top, rgba(255,255,255,0), #e3e3e3); background-image: linear-gradient(top rgba(255,255,255,0), #e3e3e3);}
+
+/*	MOBILE RULES	*/
+@media only screen and (max-width: 767px ) {
+	#mod_pukkaRestaurants .itemPreviewImageSection .icon{display: none;}
+		#mod_pukkaRestaurants .itemPreview .accordion-content { padding: 11px 8px; margin: 0; }
+			 #mod_pukkaRestaurants .accordion-content .itemContent { margin: 22px 0; }
+        #mod_pukkaRestaurants .itemContent span.content:after{background-image: -moz-linear-gradient(top, rgba(255,255,255,0), #ffffff); background-image: -ms-linear-gradient(top, rgba(255,255,255,0), #ffffff); background-image: -o-linear-gradient(top, rgba(255,255,255,0), #ffffff); background-image: -webkit-gradient(inear, center top, center bottom, from(rgba(255,255,255,0)), to(#ffffff)); background-image: -webkit-linear-gradient(top, rgba(255,255,255,0), #ffffff); background-image: linear-gradient(top rgba(255,255,255,0), #ffffff);}
+
+        #mod_pukkaRestaurants .itemContent.show-all.mobile span.content{height: 5.52em;}
+				#mod_pukkaRestaurants .itemContent.show-all.mobile span.content:after{display: block;}
+			#mod_pukkaRestaurants .itemContent.show-all.mobile div.toggleContent.read-more{display: block!important;}
+				#mod_pukkaRestaurants .itemContent.show-all.mobile.open div.toggleContent.read-more{display: none!important;}
+				#mod_pukkaRestaurants .itemContent.show-all.mobile.open div.toggleContent.read-less{display: block!important;}
+				
+				
+				#mod_pukkaRestaurants .itemContent span.content{
+				height:3.6em!important;
+				}
+				 #mod_pukkaRestaurants .itemContent span.content.open{
+				height:auto!important;
+				}
+}

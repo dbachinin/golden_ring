@@ -1,0 +1,134 @@
+/* --- Global Module Styles --- */
+
+/***	Accordion Styles	--	START	***/
+.moduleOutput.viewList { float: left; height: auto; margin: 25px 0 0; overflow: hidden; position: relative; width: 100%;}
+	.category { float: left; width: 100%; margin: 0 0 11px; padding: 0; overflow: hidden; position: relative; background: #e3e3e3; }
+		.category .dateEvent{font-size: 0.813em; color:#4d4d4d; font-weight: 700; line-height: 1.692em; width: 100%; float:left;}
+
+		.moduleOutput:not(#mod_pukkaSimpleRooms):not(#mod_pukkaActivities):not(#mod_pukkaPress) .itemPreview{float: left; width: 100%; margin: 0 0 11px; padding: 0; overflow: hidden; position: relative; background: #e3e3e3;}
+			.itemContent span.content{display:block;height:62px; overflow:hidden;position: relative;}
+
+		.accordionTitleModule { height: 41px; line-height: 38px; margin: 0; text-transform: capitalize; border: 1px solid #ccc; border-bottom: 2px solid #ccc; cursor: pointer; background-color: #48b9e5; font-weight:400; padding:0 40px 0 15px; color: #fff; -webkit-box-sizing:border-box; -moz-box-sizing:border-box; box-sizing:border-box; /* -webkit-transition: all .2s ease-in-out; -moz-transition: all .2s ease-in-out; -o-transition: all .2s ease-in-out; transition: all .2s ease-in-out; */}
+			.accordionTitleModule span.button:after{display: inline-block;font-family: 'icon-font'; content:"\e621"; position: absolute;right:0;top:0;width:40px;height: 40px;line-height: 40px;text-align: center; color:#fff; font-size: 60px; text-shadow: 0px 0px 5px rgba(0,0,0,.5), 0px 0px 2px rgba(0,0,0,.5); text-indent: -10px; border-left: 1px solid #ccc;}
+				.selected .accordionTitleModule span.button:after{content: "\e622";}
+
+			span.button{display: block;position: absolute;right:0;top:0;width:40px;height: 40px;}
+
+	.moduleOutput .accordion-content .itemPreviewImageSection{ width: 222px; height: 119px; float: left; display: block; margin: 0 17px 3px 0; position: relative; }
+		.itemPreviewImageSection .control.prevImage {  background-position: left top; left: 12px; }
+		.itemPreviewImageSection .control.nextImage{ background-position: -17px -237px; right: 12px; }
+/***	Accordion Styles	--	END	***/
+
+/* --- Easy Responsive Tabs Styles (Rooms And Activities Module) START --- */
+.tabs { height: auto; width: 96%; float: left; overflow: hidden; margin: 0 2% 0 2%; }
+	.tabs .resp-tabs-list li { display: inline-block; height: 5em; line-height: 1.071em; margin: 1em 0.5em 0 0; padding: 0.75em 0.75em 1.35em; font-size: 0.813em; font-weight: normal; text-transform: uppercase; text-align: left; background:none;vertical-align: bottom;cursor: pointer; -webkit-box-sizing:border-box; -moz-box-sizing:border-box; box-sizing:border-box; -webkit-transform:translateY(0.6em); -moz-transform:translateY(0.6em); -ms-transform:translateY(0.6em); -o-transform:translateY(0.6em); transform:translateY(0.6em); -webkit-transition:all .15s ease-in-out!important; -moz-transition:all .15s ease-in-out!important; -o-transition:all .15s ease-in-out!important; transition:all .15s ease-in-out!important; -webkit-backface-visibility: hidden;}
+		.tabs .resp-tabs-list li:not(.resp-tab-active):hover{-webkit-transform:translateY(0); -moz-transform:translateY(0); -ms-transform:translateY(0); -o-transform:translateY(0); transform:translateY(0);}
+			.tabs .resp-tabs-list li span{width: 100%; height: 3.1em; display: inline-block; overflow: hidden;}
+			.tabs .resp-tabs-list li.resp-tab-active { background-color: #fff!important; }
+				.tabs .resp-tabs-list li:before{display: none;}
+.moduleItemTab .modCycle{ width: 100%; height:auto; }
+	.moduleItemTab .mod_content { float: left; margin: 0 2% 2% 2%; border: none; width: 96%;}
+		.moduleItemTab .itemPreview{height: 0;overflow: hidden;border:none;padding:0; background-color:#fff;-webkit-transition:opacity .2s ease-in-out; -moz-transition:opacity .2s ease-in-out; -o-transition:opacity .2s ease-in-out; transition:opacity .2s ease-in-out;}
+			.moduleItemTab .itemPreview.resp-tab-content-active { height: auto; opacity: 1; padding: 20px; }
+.moduleItemTab .itemPreviewImageSection { float: left; margin: 22px 45px 0 21px; width: 222px; height: 119px; position: relative; overflow: hidden; }
+	.icon { width: 21px; height: 21px; position: absolute; right: 0; bottom: 0; z-index: 130; background-color:rgba(0,0,0,.75); cursor: pointer; }
+		.icon:before { display: block; font-family: 'icon-font'; content: "\e61c"; position: absolute; bottom: 0; right: 0; width: 21px; height: 21px; z-index: 110; color: #fff; font-size: 46px; text-indent: -12px; line-height: 21px; z-index: 111; text-decoration: none; }
+	.moduleItemTab .intro { height: 50px; overflow: hidden; margin: 22px 0; }
+	.moduleItemTab .itemContent { margin: 0; overflow:hidden; height:auto;}
+		.moduleItemTab .itemContent .itemContentTitle{margin:0 0 5px;}
+			.moduleItemTab .itemContent span.content{height:5em;}
+
+		.itemContent.show-all span.content{height: auto;}
+			.itemContent.show-all div.toggleContent{display: none!important;}
+		.itemContent span.content:after{display: block; content:""; width:100%; height: 3.135em; position: absolute; bottom: 0; /* background-image: -moz-linear-gradient(top, rgba(255,255,255,0), #ffffff); background-image: -ms-linear-gradient(top, rgba(255,255,255,0), #ffffff); background-image: -o-linear-gradient(top, rgba(255,255,255,0), #ffffff); background-image: -webkit-gradient(inear, center top, center bottom, from(rgba(255,255,255,0)), to(#ffffff)); background-image: -webkit-linear-gradient(top, rgba(255,255,255,0), #ffffff); background-image: linear-gradient(top rgba(255,255,255,0), #ffffff);-webkit-transition:opacity .4s ease-in-out; -moz-transition:opacity .4s ease-in-out; -o-transition:opacity .4s ease-in-out; transition:opacity .4s ease-in-out; */}
+			.itemContent span.content.open:after {opacity: 0;}
+				.itemContent.show-all span.content:after{display: none;}
+.moduleItemTab h2.resp-accordion .resp-arrow { display: none; }
+.moduleOutput .prevImage {height: 29px; position: absolute; top: 40%; left: 12px; width: 18px; z-index: 130; cursor: pointer; }
+	.moduleOutput .prevImage:after{display: inline-block;font-family: 'icon-font';content: "\e61a"; font-size: 88px; color: #fff; width: 18px; height: 30px; line-height: 28px; text-indent: -35px; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale; text-shadow: 0px 0px 5px rgba(0,0,0,.5);}
+.moduleOutput .nextImage{height: 29px; position: absolute; right: 12px; top: 40%; width: 18px; z-index: 130; cursor: pointer; }
+	.moduleOutput .nextImage:after{display: inline-block;font-family: 'icon-font';content: "\e61b"; font-size: 88px; color: #fff; width: 18px; height: 30px; line-height: 28px; text-indent: -35px; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale; text-shadow: 0px 0px 5px rgba(0,0,0,.5);}
+.moduleItemTab .itemBottomContent{float:left;width: 100%;text-align: right;margin-top: 10px;}
+.moduleItemTab .price { display: inline-block; width: auto; height:40px; line-height:40px; font-size: 1em; margin-right: 17px;}
+.booking-link { display: inline-block; width: auto; height: 40px; text-decoration: none; font-size: 1em; text-transform: none; line-height: 40px; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;}
+	span.booking-link-text{padding:0 25px;}
+	#content .booking-link:before{display:inline-block; font-family:'icon-font'; content:"\e61b";float:right;background-color: rgba(0,0,0,.15); font-weight:normal; font-size: 40px; width:46px;height:40px; line-height:40px; text-align:center; color:#fff; }
+	.moduleItemTab .before p { padding: 20px; }
+	.moduleItemTab .before p:last-child { margin-bottom: 0; }
+/* --- Easy Responsive Tabs Styles END --- */
+
+/*TABLET LANDSCAPE RULES*/
+@media only screen and ( min-width: 767px ) and ( max-width: 1200px ) {
+	.tabs .resp-tabs-list li{font-size: 0.75em;}
+	.moduleItemTab .itemContent span.content{
+height:5em!important;
+}
+.moduleItemTab .itemContent span.content.open{
+height:auto!important;
+}
+}
+
+/*TABLET PORTRAIT RULES*/
+@media only screen and ( min-width: 768px ) and ( max-width: 1023px ) {
+
+}
+
+/* PHONE STYLES*/
+@media only screen and (max-width: 767px ) {
+.moduleItemTab .itemContent span.content{height:3.8em!important;}
+.moduleItemTab .itemContent span.content.open{
+height:auto!important;
+}
+	#content .moduleOutput.viewList{float:none; margin: 0 auto; }
+
+	/* --- Easy Responsive Tabs Styles START --- */
+	.itemPreviewImageSection .icon{display: none;}
+		.moduleItemTab .before p{ padding: 0 0 20px; }
+		.moduleItemTab { float: left; }
+	.moduleBody.moduleItemTab .price { display:block; margin: 0; width:100%; text-align: center; clear:both; position: relative; bottom:41px; }
+	.moduleItemTab .category { background: none; margin: 10px 0 0; }
+		.moduleItemTab .accordionTitleModule { height: auto; color: #4d4d4d; font-size: 1.250em; background:none!important; margin: 0; background: none; padding: 0; border:none; line-height: 1.2em;}
+
+		.moduleItemTab .category span.button{display: none;}
+		.moduleItemTab .mod_content { width: 100%; margin: 0; }
+		.moduleItemTab .tabs { display: none; }
+		.moduleItemTab .accordion-content{display: block!important;}
+
+		.moduleItemTab .resp-accordion { height: 41px; line-height: 38px; border: 1px solid #ccc; border-bottom: 2px solid #ccc; margin: 10px 0 0; padding: 0 40px 0 10px; text-align: left; color: #fff; font-weight: normal; font-size: 0.750em; background-color: #46bae5; overflow: hidden; position: relative; line-height: 1.056em; -webkit-transition:all .2s ease-in-out;}
+		.moduleItemTab .resp-accordion.resp-tab-active{background-color: #fff; color: #4d4d4d;}
+
+			.moduleItemTab .resp-accordion:after{display: inline-block; font-family: 'icon-font'; content: "\e621"; position: absolute; right: 0; top: 0; width: 40px; height: 40px; line-height: 40px; text-align: center; color: #fff; font-size: 60px; text-shadow: 0px 0px 5px rgba(0,0,0,.5), 0px 0px 2px rgba(0,0,0,.5); text-indent: -10px; border-left: 1px solid #ccc;}
+				.moduleItemTab .resp-accordion.resp-tab-active:after{content: "\e622";}
+					.moduleItemTab .resp-accordion span{display: inline-block;position: absolute;top:50%; padding-right: 42px; -webkit-transform: translateY(-50%); -moz-transform: translateY(-50%); -ms-transform: translateY(-50%); -o-transform: translateY(-50%); transform: translateY(-50%);}
+				.moduleItemTab .itemPreview{height: auto;padding: 20px;}
+					.resp-tab-content{display: none;padding: 15px;opacity: 1}
+					.moduleItemTab .itemContent.show-all.mobile span.content{height: 4.22em;}
+						.moduleItemTab .itemContent.show-all.mobile span.content:after{display: block;}
+					.moduleItemTab .itemContent.show-all.mobile div.toggleContent.read-more{display: block!important;}
+						.moduleItemTab .resp-tab-content-active .itemContent.show-all.mobile.open div.toggleContent.read-more{display: none!important;}
+						.moduleItemTab .resp-tab-content-active .itemContent.show-all.mobile.open div.toggleContent.read-less{display: block!important;}
+
+		.moduleItemTab .itemPreviewImageSection { width: 260px; height: 140px; float: none; margin: 0 auto; }
+			.moduleItemTab .itemPreviewImageSection .slide { display: block; width: 100%; height: 100%; }
+			.moduleItemTab .itemPreviewImageSection img { display: block; width: 100%; height: 100%; }
+		.moduleItemTab .resp-tabs-container { background: none; min-width: 280px;}
+		.moduleItemTab .resp-tab-content { padding: 10px; background: #fff; }
+			.moduleItemTab .itemPreview.resp-tab-content-active{padding:10px;}
+			.moduleItemTab .itemContent .itemContentTitle{margin-top: 10px;}
+		.moduleItemTab .prevImage, .moduleItemTab .nextImage { top: 62px; }
+		.moduleItemTab .moduleBody .booking-link { width:100%;text-indent: 16%; margin: 0; position: relative; top: 22px; }
+		.moduleItemTab .icon { bottom: 0px; }
+
+		.moduleItemTab .itemBottomContent{text-align: center;}
+			.moduleItemTab .price{margin:0;}
+			.moduleItemTab .booking-link{width: 100%;}
+	/* --- Easy Responsive Tabs Styles END --- */
+
+	/***	Accordion Styles	***/
+	.moduleOutput:not(#mod_pukkaPress) .itemPreview{background-color: #fff;}
+	.moduleOutput:not(#mod_pukkaSimpleRooms):not(#mod_pukkaActivities):not(#mod_pukkaPress) .itemPreview{background:#fff;}
+	.accordionTitleModule { display: block; position: relative; text-align: left; z-index: 25; color: #fff; font-size: 0.813em; text-transform: capitalize; padding: 0 40px 0 10px; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
+		.accordionTitleModule > span { display: inline-block; position: absolute; top: 50%; padding-right: 42px; line-height: 1.056em; -webkit-transform: translateY(-50%); -moz-transform: translateY(-50%); -ms-transform: translateY(-50%); -o-transform: translateY(-50%); transform: translateY(-50%); }
+	.moduleOutput .accordion-content .itemPreviewImageSection { width: 260px; height: 140px; float: none; margin: 0 auto; }
+		.itemPreviewImageSection img, .itemPreviewImageSection a  {  width: 100%; height: 100%; }
+}

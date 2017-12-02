@@ -1,0 +1,26 @@
+
+/***************  modules/pukkaGalleries/themes/default/style.viewItem.css  ***************/
+#mod_pukkaGalleries .moduleItemList {
+	list-style:none;
+	padding:2px 2px 2px 43px;
+	margin:3px;
+}
+
+#mod_pukkaGalleries .moduleItemList a {
+	color:#666;
+	text-decoration:none;
+	line-height:1.5em;
+}
+
+#mod_pukkaGalleries .moduleItemList a.currentItem  {
+	color:#364AAB;
+	font-weight:bold;
+}
+
+#mod_pukkaGalleries .galleryheader {
+	font-size: 1.5em;
+	color: #444;
+	padding:3px;
+	font-weight: normal;
+	padding-bottom:20px;
+}
