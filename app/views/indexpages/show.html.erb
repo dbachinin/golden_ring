@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @indexpage.description %>
+</p>
+
+<p>
+  <strong>Foto:</strong>
+  <%= @indexpage.foto %>
+</p>
+
+<%= link_to 'Edit', edit_indexpage_path(@indexpage) %> |
+<%= link_to 'Back', indexpages_path %>

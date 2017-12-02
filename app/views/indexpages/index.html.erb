@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Indexpages</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Description</th>
+      <th>Foto</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @indexpages.each do |indexpage| %>
+      <tr>
+        <td><%= indexpage.description %></td>
+        <td><%= indexpage.foto %></td>
+        <td><%= link_to 'Show', indexpage %></td>
+        <td><%= link_to 'Edit', edit_indexpage_path(indexpage) %></td>
+        <td><%= link_to 'Destroy', indexpage, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Indexpage', new_indexpage_path %>

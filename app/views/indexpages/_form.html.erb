@@ -1,0 +1,27 @@
+<%= form_with(model: indexpage, local: true) do |form| %>
+  <% if indexpage.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(indexpage.errors.count, "error") %> prohibited this indexpage from being saved:</h2>
+
+      <ul>
+      <% indexpage.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_area :description, id: :indexpage_description %>
+  </div>
+
+  <div class="field">
+    <%= form.label :foto %>
+    <%= form.text_field :foto, id: :indexpage_foto %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
