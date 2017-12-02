@@ -5,6 +5,7 @@ class IndexpagesController < ApplicationController
   # GET /indexpages.json
   def index
     @indexpages = Indexpage.all
+    @index = Indexpage.first
   end
 
   # GET /indexpages/1

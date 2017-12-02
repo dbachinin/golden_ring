@@ -133,7 +133,7 @@ html{
 
 /***************		BOOKING MASK - START		***************/
 /*.bookingmask { background-color: #eeeeee00; height: auto; overflow: hidden; position: absolute; right: 20px; top: 104px; width: 318px; z-index: 300; }*/
-#bookingmask { background-color: #eeeeee00; height: auto; overflow: hidden; position: absolute; right: 20px; top: 204px; width: 318px; z-index: 300; }
+#bookingmask { background-color: #eeeeee00; height: auto; overflow: hidden; position: absolute; right: 20px; top: 234px; width: 318px; z-index: 300; }
 .bestrate { width: 280px; float: left; margin: 10px 0px 0; position: relative; color: #001937;}
 .bestrate .price,.bestrate .rate{
 	font-family:"open_sanscondensed_light",sans-serif;
@@ -175,7 +175,7 @@ div.selector select, div.selector select option {background: #eee!important;}
 
 /***************		SPECIALS ROTATOR - START		***************/
 .loggedIn .specialsRotator { overflow: visible; }
-.specialsRotator { background:url(../../media/main/images/specialsRotator-bg.png); height: 116px; overflow: hidden; position: absolute; right: 350px; top: 104px; width: 295px; z-index: 300; color: #011b3b; text-align: center; }
+.specialsRotator { background:url(../../media/main/images/specialsRotator-bg.png); height: 116px; overflow: hidden; position: absolute; right: 43px; top: 104px; width: 295px; z-index: 300; color: #011b3b; text-align: center; }
 	.specialsRotator .toolbox-link{ top: 115px; }
 	.specialsRotator .widget_offers{ height: 116px; position: relative; }
 

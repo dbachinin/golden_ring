@@ -269,8 +269,7 @@ form.flexibleForm label.fieldLabel{
 
 			<div class="main-nav nav"><ul class="shortcuts"
 			><li class="shortcut1 item1 itemr7 level1 photos"
-				><a href="photos-ru.html">Фотогалерея</a
-			></li
+				><%= link_to 'Фотогалерея', fotos_path%></li
 			><li class="shortcut2 item2 itemr6 level1 rooms"
 				><a href="rooms-ru.html">Номера</a
 			></li
@@ -314,24 +313,6 @@ form.flexibleForm label.fieldLabel{
 </script>
 <!-- end of OtelMS -->
     <%= yield %>
-
-<!-- PAGE SPECIFIC SCRIPTS -->
-<script type="text/javascript">
-$(document).ready(function(){
-
-	$("#content").find('.introText').jScrollPane({mouseWheelSpeed: 30, verticalGutter: 30, autoReinitialise: true});
-
-	$("#content .contentButton a ").click(function () {
-		var el = $(this);
-		if(el.parents().eq(1).hasClass("open")){
-			el.parents().eq(1).removeClass("open");
-		}else{
-			el.parents().eq(1).addClass("open");
-		}
-	});
-});
-
-</script>
 
 
 	<div class="specialsRotator">
