@@ -31,11 +31,21 @@
 				condor.dataSection      = 'hiltongardeninn';
 			//]]>
 			</script>
+
+<link type="text/css" rel="stylesheet" href="media/merged/photos_viewItem_item131_f1_2017-10-06-05-14_1906061459.css" />
 <link rel="stylesheet" type="text/css" href="media/templates/main/css/fonts/stylesheet.css"/>
+<% if request.original_fullpath == "/indexpages" %>
 <link type="text/css" rel="stylesheet" href="media/merged/global_f7_2015-04-09-02-10_1857596099.css" />
 <link type="text/css" rel="stylesheet" href="media/merged/none_f2_2015-04-17-02-24_4011292717.css" />
+<%else%>
+<link type="text/css" rel="stylesheet" href="media/merged/none_f2_2015-04-17-02-24_4011292717.css" />
+<link type="text/css" rel="stylesheet" href="media/merged/global_f7_2015-04-09-02-10_1857596099.css" />
+<%end%>
+<link type="text/css" rel="stylesheet" href="media/merged/none_f2_2015-04-17-02-24_1958879522.css" />
 <link type="text/css" rel="stylesheet" href="media/merged/widget_styles_f2_2015-04-07-06-25_743293303.css" />
 <link rel="stylesheet" type="text/css" href="media/templates/main/css/lang.ru.css"/>
+<link rel="stylesheet" type="text/css" href="media/templates/main/css/module.css"/>
+<script type="text/javascript" src="media/merged/global_f9_2015-04-06-00-54_1360891556.js"></script>
 <script type="text/javascript" src="media/merged/global_f11_2015-04-06-00-54_3564736055.js"></script>
 <script type="text/javascript" src="media/merged/none_f1_2015-04-06-00-54_835709338.js"></script>
 <!-- <script type="text/javascript" src="media/templates/main/libs/jquery/jquery-datepicker/lang/jquery.ui.datepicker-ru.js"></script> -->
@@ -243,9 +253,15 @@ form.flexibleForm label.fieldLabel{
 }
 </style>
 </head>
-
-<body id="page_home" class="en">
-
+<% if request.original_fullpath == "/" %>
+<body id="page_home" class="ru">
+<%elsif request.original_fullpath.include?("fotos")%>
+<body id="page_photos" class="ru">
+<%elsif request.original_fullpath.include?("rooms")%>
+<body id="page_rooms" class="ru">
+<%elsif request.original_fullpath.include?("locations")%>
+<body id="page_location" class="ru">
+<%end%>
 
 	<div id="header">
 
@@ -255,7 +271,7 @@ form.flexibleForm label.fieldLabel{
 			</div>
 
 			<div class="logo">
-									<a title=""></a>
+									<%=link_to '', indexpages_path %>
 							</div>  <!-- END .logo -->
 
 			<!--<div class="langauge">
@@ -271,11 +287,9 @@ form.flexibleForm label.fieldLabel{
 			><li class="shortcut1 item1 itemr7 level1 photos"
 				><%= link_to 'Фотогалерея', fotos_path%></li
 			><li class="shortcut2 item2 itemr6 level1 rooms"
-				><a href="rooms-ru.html">Номера</a
-			></li
+				><%= link_to 'Номера', rooms_path%></li
 			><li class="shortcut6 item6 itemr2 level1 location"
-				><a href="location-ru.html">Расположение</a
-			></li
+				><%= link_to 'Расположение', locations_path%></li
 		></ul>
 		</div>
 		<script type="text/javascript">
@@ -311,10 +325,7 @@ form.flexibleForm label.fieldLabel{
         } 
     }, false); 
 </script>
-<!-- end of OtelMS -->
-    <%= yield %>
-
-
+</div>
 	<div class="specialsRotator">
 				<div class="mod_core widget_rotator widget">
 	<ul class="widget-content">
@@ -367,6 +378,13 @@ jQuery(document).ready(function() {
 </script>
 
 	</div>  <!-- END .specials -->
+<!-- end of OtelMS -->
+   
+
+   <%= yield %>
+
+<!--_______________________________________END OF YELD ____________-->
+
 		<div id="footer">
 		<div class="footer-top">
 

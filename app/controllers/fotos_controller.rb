@@ -5,6 +5,8 @@ class FotosController < ApplicationController
   # GET /fotos.json
   def index
     @fotos = Foto.all
+    idd = params[:itemid]||@fotos.first.id
+    @item = Foto.find(idd)
   end
 
   # GET /fotos/1

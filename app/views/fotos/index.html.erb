@@ -1,31 +1,140 @@
-<p id="notice"><%= notice %></p>
 
-<h1>Fotos</h1>
+<div id="gallery-holder">
+  <div id="gallery-content">
+    <div id="mod_pukkaGalleries" class="moduleOutput viewItem">
 
-<table>
-  <thead>
-    <tr>
-      <th>Foto</th>
-      <th>Description</th>
-      <th>Item</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+  <div class="moduleBody">
+  <%count=0%>
+  <% @fotos.find(@item.id).foto.split(',').each do |f|%>
+  <% count +=1%>
+          <style type="text/css">
+        #mod_pukkaGalleries .gallery-slides .item<%=count-1%>{background-image:url(media/__thumbs_1400_900_crop/<%=f%>);}
+        #mod_pukkaGalleries a.image<%=count%> span.pager-ico{width:90px;height:58px;background-image: url(media/__thumbs_90_58_crop/<%=f%>);}
+        @media only screen and ( max-width: 767px ) {
+        #mod_pukkaGalleries .gallery-slides .item<%=count%>{background-image:url(media/__thumbs_740_561_crop/<%=f%>);}
+        #mod_pukkaGalleries a.image<%=count%> span.pager-ico{background-image:none;}
+        }
+      </style>
+      <%end%>
+          <div class="gallery-slides">
+        <div class="cycle-slideshow" data-cycle-slides="> .slide"
+                      data-cycle-fx="fade"
+                      data-cycle-pager="#gallery-pager-mobile"
+                      data-cycle-pager-template="<span class='pager-number'>{{slideNum}} of 6</span>"
+                      data-cycle-timeout="7000"
+                      data-cycle-speed="500"
+                      data-cycle-prev=".cycle-prev, #gallery-pager .cycleThumb-prev"
+                      data-cycle-next=".cycle-next, #gallery-pager .cycleThumb-next"
+                      data-cycle-swipe=true
+                      data-cycle-carousel-visible="1">
+                     <%count.times do |i|%>
+                     <%if @fotos.find(@item.id).description.length >= 3%>
+                     <%desk=@fotos.find(@item.id).description.split('/')[i]%>
+                    <div class="image-slide slide item<%=desk.split(':').first%>">       
+            <div class="imageTitle"><span class="imageDescription"><%=desk.split(':')[1]%></span></div>
+            <div class="imageTitle-mobile"><%=desk.split(':').last%></div>
+            <div class="gradient-bg"></div>
+          </div>
+          <%else%>
+          <div class="image-slide slide item<%=i%>"></div>
+          <%end%>
+          <%end%>               
+        </div>
 
-  <tbody>
-    <% @fotos.each do |foto| %>
-      <tr>
-        <td><%= foto.foto %></td>
-        <td><%= foto.description %></td>
-        <td><%= foto.item %></td>
-        <td><%= link_to 'Show', foto %></td>
-        <td><%= link_to 'Edit', edit_foto_path(foto) %></td>
-        <td><%= link_to 'Destroy', foto, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+        <div id="controls">
+          <div class="cycle-prev cycle-nav"></div>
+          <div class="cycle-next cycle-nav"></div>
+          <!--<a id="fullscreen-button"></a>-->
+        </div>
 
-<br>
+        <div id="gallery-pager-mobile" class="cycle-pager">
 
-<%= link_to 'New Foto', new_foto_path %>
+      </div>
+      </div>
+
+      <div id="gallery-components">
+        <div id="gallery-components-wrapper" class="section-wrapper">
+          <div id="sub-menu">
+            <h3 class="section">Фотогалерея</h3>
+            <div class="gallerynav">
+  <span></span>
+
+  <div class="gallery-content-menu">
+  <%@fotos.each do |item|%>  
+  <% if item.id == @item.id %>
+          <div  class="galleryOptions button_bg first active"><%= link_to @fotos.find(item.id).item, fotos_path(itemid: item) %></div> 
+  <%else%>    
+          <div  class="galleryOptions button_bg"><%= link_to item.item, fotos_path(itemid: item.id) %></div>     
+  <%end%>
+  <%end%>   
+  </div><!-- end .gallery-content-menu -->
+</div><!-- end .gallerynav -->
+<span class="select-button"></span>
+<select class="main-content-menu" onchange="if (this.value) window.location.href=this.value">       <option class="first active option" value="http://golden-ring.ru.com/photos_131-ru.html" selected="selected">Экстерьер</option>       <option class=" option" value="http://golden-ring.ru.com/photos_111-ru.html" >Отель</option>        <option class=" option" value="http://golden-ring.ru.com/photos_141-ru.html" >Номера</option></select>
+
+
+
+<script type="text/javascript">
+    jQuery(document).ready(function(){
+
+  $("span.select-button").text($("option.active").text());
+
+  var valueTxt = $('.galleryOptions.active a').text();
+  if( valueTxt.length != 0 ){
+    $('.gallerynav span').text(valueTxt);
+  }
+
+
+
+      $('.gallerynav').click(function(){
+        $('.gallery-content-menu').slideToggle("200","easeOutBack");
+        $(".gallerynav").toggleClass("on");
+      });
+
+
+    });
+</script>
+
+          </div>              <div id="gallery-pager" class="cycle-pager">                  <a class="cycleThumb-prev button_bg"></a>
+                        <a class="cycleThumb-next button_bg"></a>
+                  <div id="cycle-2" class="cycle-slideshow"
+                        data-cycle-slides="> a"
+                        data-cycle-timeout="7000"
+                    data-cycle-speed="500"
+                        data-cycle-prev="#gallery-pager .cycleThumb-prev, .cycle-prev"
+                        data-cycle-next="#gallery-pager .cycleThumb-next, .cycle-next"
+                        data-cycle-fx="carousel"
+                        data-cycle-carousel-visible="4"
+                        data-cycle-carousel-fluid="false"
+                        data-allow-wrap="true"
+s                        >
+          <%count.times do |c|%>    <a class="thumb-image non-active image<%=c+1%>">
+                <span class="pager-ico"></span>
+            </a>
+          <%end%>
+            </div>
+
+          </div>
+        </div>
+<!-- MODULE SPECIFIC SCRIPTS -->
+<script type="text/javascript">
+jQuery(document).ready(function(){
+    // Advance the other slideshow
+    var slideshows = $('.cycle-slideshow').on( function(e, opts) {
+        slideshows.not(this).cycle('goto', opts.currSlide);
+    });
+
+    // Synchronize the slideshow with the carousel
+    $('#cycle-2 .cycle-slide').click(function(){
+        var index = $('#cycle-2').data('cycle.API').getSlideIndex(this);
+        slideshows.cycle('goto', index);
+    });
+});
+</script>
+
+
+
+  </div>
+</div>
+  </div>
+</div>
