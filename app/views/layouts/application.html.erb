@@ -41,6 +41,7 @@
 <link type="text/css" rel="stylesheet" href="media/merged/none_f2_2015-04-17-02-24_4011292717.css" />
 <link type="text/css" rel="stylesheet" href="media/merged/global_f7_2015-04-09-02-10_1857596099.css" />
 <%end%>
+
 <link type="text/css" rel="stylesheet" href="media/merged/none_f2_2015-04-17-02-24_1958879522.css" />
 <link type="text/css" rel="stylesheet" href="media/merged/widget_styles_f2_2015-04-07-06-25_743293303.css" />
 <link rel="stylesheet" type="text/css" href="media/templates/main/css/lang.ru.css"/>
@@ -51,6 +52,14 @@
 <!-- <script type="text/javascript" src="media/templates/main/libs/jquery/jquery-datepicker/lang/jquery.ui.datepicker-ru.js"></script> -->
 <script type="text/javascript" src="condor/modules/imageSwitch/javascript.imageSwitch.js"></script>
 <link rel="stylesheet" type="text/css" href="condor/modules/imageSwitch/style.imageSwitch.css"/>
+<% if request.original_fullpath == "/rooms" %>
+	<link type="text/css" rel="stylesheet" href="media/merged/rooms_viewList_f1_2015-04-06-00-54_2775890660.css" />
+	<link type="text/css" rel="stylesheet" href="media/merged/none_f3_2015-04-17-02-24_3660963472.css" />
+	<link type="text/css" rel="stylesheet" href="media/merged/widget_styles_f2_2015-04-07-06-25_743293303.css" />
+<%end%>
+<% if request.original_fullpath == "/locations"%>
+<link type="text/css" rel="stylesheet" href="media/merged/none_f2_2015-04-17-02-24_1463553881.css" />
+<%end%>
 <!-- <script src="//cdn.jsdelivr.net/g/jquery@1.11.0"></script> -->
 
 <!-- <script src="//cdn.jsdelivr.net/jquery.cookie/1.4.0/jquery.cookie.min.js"></script> -->

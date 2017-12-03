@@ -1,32 +1,163 @@
-<p id="notice"><%= notice %></p>
 
-<h1>Locations</h1>
+    <div id="subVisual">
+       <div id="slideshow5a0ffaac1e17c" class="slideshow">      <style type="text/css">
+        #slideshow5a0ffaac1e17c div.item1{background-image:url(media/67812.jpg);}
+        @media only screen and ( max-width: 767px ) { #slideshow5a0ffaac1e17c div.item1{background-image:none;} }
+      </style>
 
-<table>
-  <thead>
-    <tr>
-      <th>Description</th>
-      <th>Addres</th>
-      <th>Phone</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+      <div class="slide item1"></div>
+    <!--<img alt="" src="" class="slide" />-->
+            <style type="text/css">
+        #slideshow5a0ffaac1e17c div.item2{background-image:url(media/5672435.jpg);}
+        @media only screen and ( max-width: 767px ) { #slideshow5a0ffaac1e17c div.item2{background-image:none;} }
+      </style>
 
-  <tbody>
-    <% @locations.each do |location| %>
-      <tr>
-        <td><%= location.description %></td>
-        <td><%= location.addres %></td>
-        <td><%= location.phone %></td>
-        <td><%= link_to 'Show', location %></td>
-        <td><%= link_to 'Edit', edit_location_path(location) %></td>
-        <td><%= link_to 'Destroy', location, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+      <div class="slide item2"></div>
+    <!--<img alt="" src="" class="slide" />-->
+            <style type="text/css">
+        #slideshow5a0ffaac1e17c div.item3{background-image:url(media/100498453.jpg);}
+        @media only screen and ( max-width: 767px ) { #slideshow5a0ffaac1e17c div.item3{background-image:none;} }
+      </style>
 
-<br>
+      <div class="slide item3"></div>
+    <!--<img alt="" src="" class="slide" />-->
+            <style type="text/css">
+        #slideshow5a0ffaac1e17c div.item4{background-image:url(media/100498578.jpg);}
+        @media only screen and ( max-width: 767px ) { #slideshow5a0ffaac1e17c div.item4{background-image:none;} }
+      </style>
 
-<%= link_to 'New Location', new_location_path %>
+       </div>
 
+<div id="controls">
+  <div class="cycle-prev cycle-nav"></div>
+  <div class="cycle-next cycle-nav"></div>
+</div>
+
+<!-- jQuery Scripts for Slide show -->
+
+<script type="text/javascript">
+jQuery(document).ready(function() {
+  jQuery('#subVisual .slideshow').cycle({
+    slides: '> div',
+    fx:     'fade',
+    speed:  300,
+    timeout: 7000,
+    prev: '.cycle-prev',
+    next: '.cycle-next',
+    slideResize:0,
+    easeIn:  'swing',
+    easeOut: 'swing',
+    swipe: true
+  });
+
+});
+</script>
+
+    </div>  <!-- END #mainVisual -->
+
+    <div class="checkrates">
+      <div class="text-wrap">
+
+      </div>
+            </div>
+
+<div id="content" class="subpage">
+
+<div class="content-wrapper">
+
+  <div class="detail">
+            <span class="text">Расположение</span>
+    </div>
+
+    
+      <h1 class="mainTitle">Ориентиры поблизости</h1>
+      <h2 class="seoh2">Ближайшие достопримечательности</h2>
+      <div class="first-content"><ul>
+        <li>Сочинский Океанариум  0,3 km</li>
+<li>Аквапарк Амфибиус 1,3 km</li>
+<li>Железнодорожный вокзал Адлера 3 km</li>
+<li>Железнодорожная станция Хоста 4,9 km</li>
+<li>Музей Истории Хостинского района  5,1 km</li>
+<li>Plaza-City  5,7 km</li>
+<li>Торговый центр Новый Век  5,9 km</li>
+<li>ТЦ Новый Век  5,9 km</li>
+<li>Торговый Центр Новый Век  5,9 km</li>
+<li>Самшитовая роща 6,2 km</li>
+<p></p></ul>
+      </div>
+      <div class="second-content">
+        <h3></h3>
+      </div>
+
+      
+      
+
+    
+          
+<!--The map container-->
+<div class="overlay-shadow"></div>
+        <div class="third-content"><p><strong>Golden Ring Hotel</strong><br />Адрес:Адлер ,Улица Просвещения 85в,тел:. +7 (918) 400-70-26 и +7 (967) 203-12-95, 354340, Россия</p>
+<p>ТЕЛ:<a href="tel:+79184007026">+7 (918) 400-70-26</a></p><br />
+<p>ТЕЛ:<a href="tel:+79672031295">+7 (967) 203-12-95</a></p><br />
+<p class="western" lang="ru-RU" style="margin-bottom: 0in; line-height: 115%;"><a href="mailto:Golden_ring_2017@mail.ru">Golden_ring_2017@mail.ru</a></p></div>
+
+      </div><!-- end .content-wrapper -->
+
+
+  <!-- </div> -->  <!-- END .wrapper -->
+</div>  <!-- END #content -->
+
+
+
+<div class="specialsRotator">
+ <div class="mod_core widget_rotator widget">
+  <ul class="widget-content">
+
+    <li class="item item1">
+      <div class="packageTitle">Возможны Скидки!</div>
+      <div class="packageContent">
+        <span>Узнайте о наших предложениях!&hellip;</span>
+      </div>
+                      <p><a class="learnMore" onclick="_gaq.push(['default._trackEvent','Click','Learn More','Скидки!']);" href="tel:+79184007026">Узнайте подробности</a></p>
+       
+    </li>
+    <li class="item item2">
+      <div class="packageTitle">Контакты</div>
+      <div class="packageContent">
+        <span>Адлер ,Улица Просвещения 85в,тел:. +7 (918) 400-70-26&hellip;</span>
+      </div>
+                      <p><a class="learnMore" onclick="_gaq.push(['default._trackEvent','Click','Learn More','Скидки!']);" href="tel:+79184007026">Узнайте подробности</a></p>
+       
+    </li>   
+  </ul>
+  <hr class="specialsHr" />
+  <div class="control"></div>
+  <div class="nav-arrows">
+    <div class="prevPackage"></div>
+    <div class="nextPackage"></div>
+  </div>
+</div>
+
+<script type="text/javascript">
+/* <![CDATA[ */
+jQuery(document).ready(function() {
+  jQuery('ul.widget-content').cycle({
+    fx:     'fade',
+    speed:  '1000',
+    timeout: 7000,
+    prev: '.prevPackage',
+    next: '.nextPackage',
+    pagerEvent: 'click',
+    pager:      '.control',
+    slideResize:0,
+    easeIn:  'swing',
+    easeOut: 'swing',
+    slides: '> li',
+    pagerTemplate: '<div></div>'
+  });
+
+});
+/* ]]> */
+</script>
+
+  </div>  <!-- END .specials -->    
