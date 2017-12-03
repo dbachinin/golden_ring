@@ -414,6 +414,9 @@ jQuery(document).ready(function() {
 				</li>
 
 			</ul>
+<% if user_signed_in? %>
+<%= link_to 'Logout', "/logout"%>
+<%end%>
 </div><!-- jw-widget -->
 </div><!-- END .language-toggle -->
 
@@ -739,8 +742,5 @@ jQuery(document).ready(function() {
 });
 })(jQuery);
 </script>
-<% if user_signed_in? %>
-<%= link_to "Logout", 'devise/sessions#destroy', method: :delete %>
-<%end%>
 </body>
 </html><!-- Served from Cache -->
