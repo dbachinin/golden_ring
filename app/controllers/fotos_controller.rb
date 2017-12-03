@@ -1,5 +1,6 @@
 class FotosController < ApplicationController
   before_action :set_foto, only: [:show, :edit, :update, :destroy]
+before_action :authenticate_user!, :except => [:index]
 
   # GET /fotos
   # GET /fotos.json

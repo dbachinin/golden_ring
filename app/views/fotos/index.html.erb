@@ -64,16 +64,24 @@
                   <% if item.id == @item.id %>
                   <div  class="galleryOptions button_bg first active"><%= link_to @fotos.find(item.id).item, fotos_path(itemid: item) %></div> 
                   <%else%>    
-                  <div  class="galleryOptions button_bg"><%= link_to item.item, fotos_path(itemid: item.id) %></div>     
+                  <div  class="galleryOptions button_bg"><%= link_to item.item, fotos_path(itemid: item) %></div>     
                   <%end%>
                   <%end%>   
                 </div><!-- end .gallery-content-menu -->
               </div><!-- end .gallerynav -->
+<!--               <span class="select-button"></span>
+              <select class="main-content-menu" onchange="if (this.value) window.location.href=this.value">       <option class="first active option" value="http://golden-ring.ru.com/photos_131-ru.html" selected="selected">Экстерьер</option>       <option class=" option" value="http://golden-ring.ru.com/photos_111-ru.html" >Отель</option>        <option class=" option" value="http://golden-ring.ru.com/photos_141-ru.html" >Номера</option></select> -->
               <span class="select-button"></span>
-              <select class="main-content-menu" onchange="if (this.value) window.location.href=this.value">       <option class="first active option" value="http://golden-ring.ru.com/photos_131-ru.html" selected="selected">Экстерьер</option>       <option class=" option" value="http://golden-ring.ru.com/photos_111-ru.html" >Отель</option>        <option class=" option" value="http://golden-ring.ru.com/photos_141-ru.html" >Номера</option></select>
 
-
-
+              <select class="main-content-menu" onchange="if (this.value) window.location.href=this.value"> 
+                <%= @fotos.each do |photo| %>
+                <% if photo.id == @item.id %>
+                <option class="first active option" value="<%=fotos_path(itemid: photo) %>"><%=@fotos.find(photo.id).item%></option> 
+                <%else%>
+                <option class=" option" value="<%=fotos_path(itemid: photo.id) %>"><%=photo.item%></option>
+                <%end%>
+                <%end%>
+                </select>
               <script type="text/javascript">
                 jQuery(document).ready(function(){
 

@@ -1,5 +1,6 @@
 class IndexpagesController < ApplicationController
   before_action :set_indexpage, only: [:show, :edit, :update, :destroy]
+before_action :authenticate_user!, :except => [:index]
 
   # GET /indexpages
   # GET /indexpages.json

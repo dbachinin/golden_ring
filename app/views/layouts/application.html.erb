@@ -34,14 +34,13 @@
 
 <link type="text/css" rel="stylesheet" href="media/merged/photos_viewItem_item131_f1_2017-10-06-05-14_1906061459.css" />
 <link rel="stylesheet" type="text/css" href="media/templates/main/css/fonts/stylesheet.css"/>
-<% if request.original_fullpath == "/indexpages" %>
+<% if request.original_fullpath == "/indexpages" or request.original_fullpath == "/" %>
 <link type="text/css" rel="stylesheet" href="media/merged/global_f7_2015-04-09-02-10_1857596099.css" />
 <link type="text/css" rel="stylesheet" href="media/merged/none_f2_2015-04-17-02-24_4011292717.css" />
 <%else%>
 <link type="text/css" rel="stylesheet" href="media/merged/none_f2_2015-04-17-02-24_4011292717.css" />
 <link type="text/css" rel="stylesheet" href="media/merged/global_f7_2015-04-09-02-10_1857596099.css" />
 <%end%>
-
 <link type="text/css" rel="stylesheet" href="media/merged/none_f2_2015-04-17-02-24_1958879522.css" />
 <link type="text/css" rel="stylesheet" href="media/merged/widget_styles_f2_2015-04-07-06-25_743293303.css" />
 <link rel="stylesheet" type="text/css" href="media/templates/main/css/lang.ru.css"/>
@@ -60,6 +59,7 @@
 <% if request.original_fullpath == "/locations"%>
 <link type="text/css" rel="stylesheet" href="media/merged/none_f2_2015-04-17-02-24_1463553881.css" />
 <%end%>
+
 <!-- <script src="//cdn.jsdelivr.net/g/jquery@1.11.0"></script> -->
 
 <!-- <script src="//cdn.jsdelivr.net/jquery.cookie/1.4.0/jquery.cookie.min.js"></script> -->
@@ -262,7 +262,7 @@ form.flexibleForm label.fieldLabel{
 }
 </style>
 </head>
-<% if request.original_fullpath == "/" %>
+<% if request.original_fullpath == "/" or request.original_fullpath == "/indexpages" %>
 <body id="page_home" class="ru">
 <%elsif request.original_fullpath.include?("fotos")%>
 <body id="page_photos" class="ru">
@@ -319,21 +319,7 @@ form.flexibleForm label.fieldLabel{
 	<div class="overlay-nav"></div>
 <!-- OtelMS -->
 	
-    <iframe id="bookingmask" style="border: 0" 
- src="http://goldenring-book-m.otelms.com/bookit/step1/?inline=true" 
- ></iframe> 
 
-<script type="text/javascript"> 
-    var myEventMethod = window.addEventListener ? "addEventListener" : "attachEvent"; 
-    var myEventListener = window[myEventMethod]; 
-    var myEventMessage = myEventMethod == "attachEvent" ? "booking" : "message"; 
-    myEventListener(myEventMessage, function(e) { 
-        if (e.data === parseInt(e.data)) { 
-            document.getElementById('bookingmask').style.height = 520 + "px"; 
-            console.log(e.data); 
-        } 
-    }, false); 
-</script>
 </div>
 	<div class="specialsRotator">
 				<div class="mod_core widget_rotator widget">
@@ -388,12 +374,32 @@ jQuery(document).ready(function() {
 
 	</div>  <!-- END .specials -->
 <!-- end of OtelMS -->
-   
+<% if notice %>
+  <p class="alert alert-success"><%= notice %></p>
+<% end %>
+<% if alert %>
+  <p class="alert alert-danger"><%= alert %></p>
+<% end %>
+
 
    <%= yield %>
 
 <!--_______________________________________END OF YELD ____________-->
+    <iframe id="bookingmask" style="border: 0" 
+ src="http://goldenring-book-m.otelms.com/bookit/step1/?inline=true" 
+ ></iframe> 
 
+<script type="text/javascript"> 
+    var myEventMethod = window.addEventListener ? "addEventListener" : "attachEvent"; 
+    var myEventListener = window[myEventMethod]; 
+    var myEventMessage = myEventMethod == "attachEvent" ? "booking" : "message"; 
+    myEventListener(myEventMessage, function(e) { 
+        if (e.data === parseInt(e.data)) { 
+            document.getElementById('bookingmask').style.height = 520 + "px"; 
+            console.log(e.data); 
+        } 
+    }, false); 
+</script>
 		<div id="footer">
 		<div class="footer-top">
 
@@ -733,5 +739,8 @@ jQuery(document).ready(function() {
 });
 })(jQuery);
 </script>
+<% if user_signed_in? %>
+<%= link_to "Logout", 'devise/sessions#destroy', method: :delete %>
+<%end%>
 </body>
 </html><!-- Served from Cache -->
