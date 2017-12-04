@@ -96,19 +96,19 @@
         <div class="first-content">
           <p>До пляжа можно дойти всего за 1 минуту. Отель «Золотое кольцо» с террасой и видом на сад расположен в Адлере, в 300 м от океанариума Sochi Discovery World Aquarium и в 70 м от побережья Черного моря. К услугам гостей бесплатный Wi-Fi.</p>
 
-<p>Все номера оснащены кондиционером и телевизором, а в некоторых из них обустроен гостиный уголок. В собственной ванной комнате установлен душ.</p>
+          <p>Все номера оснащены кондиционером и телевизором, а в некоторых из них обустроен гостиный уголок. В собственной ванной комнате установлен душ.</p>
 
-<p>Рядом с отелем «Золотое кольцо» работают различные кафе и рестораны. Поблизости также находятся магазины, бары, боулинг-центр и теннисный корт.</p>
+          <p>Рядом с отелем «Золотое кольцо» работают различные кафе и рестораны. Поблизости также находятся магазины, бары, боулинг-центр и теннисный корт.</p>
 
-<p>В отеле работает экскурсионное бюро.</p>
+          <p>В отеле работает экскурсионное бюро.</p>
 
-<p>Отель «Золотое кольцо» находится в 600 м от дельфинария «Акватория» и в 1,2 км от аквапарка «Амфибиус». Расстояние до центра Адлера составляет 1 км. Железнодорожный вокзал «Андлер» находится в 2,5 км от отеля «Золотое кольцо», а международный аэропорт Адлер-Сочи — в 5 км. </p>
+          <p>Отель «Золотое кольцо» находится в 600 м от дельфинария «Акватория» и в 1,2 км от аквапарка «Амфибиус». Расстояние до центра Адлера составляет 1 км. Железнодорожный вокзал «Андлер» находится в 2,5 км от отеля «Золотое кольцо», а международный аэропорт Адлер-Сочи — в 5 км. </p>
 
-<p>арам особенно нравится расположение — они оценили проживание в этом районе для поездки вдвоем на 8,9.</p>
+          <p>арам особенно нравится расположение — они оценили проживание в этом районе для поездки вдвоем на 8,9.</p>
 
-<p>Мы говорим на вашем языке!</p>
+          <p>Мы говорим на вашем языке!</p>
 
-<p>Golden Ring Hotel: гостей здесь принимают с 3 нояб. 2015.</p>
+          <p>Golden Ring Hotel: гостей здесь принимают с 3 нояб. 2015.</p>
         </div>
         <div class="second-content">
 
@@ -116,80 +116,66 @@
 
 
         <div id="mod_pukkaSimpleRooms" class="moduleOutput viewList">
-
+          <!---#############################RUBY########################-->
           <div class="moduleBody">
+            <%
+            def get_pictures(id,crop)
+              @files = []
+              Dir.foreach(Room.find(id).foto + crop) do |foto|
+               @files.push(Room.find(id).foto[7..-1] + crop + foto) if foto.include?("JPG")
+             end
+             return @files
 
+             end%>
 
-            <div class="moduleItemTab acc_1">
-              <div class="category item1 Стандартный номер с 2 кроватями selected">
-                <h3 class="accordionTitleModule">Двухместный номер Делюкс с 1 кроватью<span class="button"></span></h3>
+             <%cnt = 0%>
+             <% @rooms.each do |room| %>
+                        <% cnt+=1 %>
+             <div class="moduleItemTab acc_<%=cnt%>">
+              <div class="category item<%=cnt.to_s+ ' ' + room.name + ' '%> <%=p 'selected' if cnt == 1%>">
+                <h3 class="accordionTitleModule"><%=room.name%><span class="button"></span></h3>
                 <div class="accordion-content">
-                  <div class="module451Nav tabs">
+                  <div class="module<%="23"+cnt.to_s%>Nav tabs">
                     <ul class="resp-tabs-list">
-                      <li id='tab2'><span>Двухместный номер Делюкс с 1 кроватью</span></li>
+                      <li id='tab<%=cnt+1%>'><span><%=room.name%></span></li>
                       <style>
-                        .module451Nav.tabs .resp-tabs-list li{width:calc((100% / 1) - .6em); max-width: 150px;}
+                        .module<%="23"+cnt.to_s%>Nav.tabs .resp-tabs-list li{width:calc((100% / 1) - .6em); max-width: 150px;}
                       </style>
                     </ul>
                   </div>
 
                   <div class="mod_content resp-tabs-container">
-                    <div  class="itemPreview alt" id="item2">
+                    <div  class="itemPreview alt" id="item<%=cnt+1%>">
                       <div class="itemPreviewImageSection">
                         <div class="icon"></div>
-                        <div class="prevImage prevImage-31"></div>
-                        <div class="nextImage nextImage-31"></div>
-                        <div class="roomSlideshow-31" data-cycle-swipe="true">
-                          <a class='slide' href="media/__thumbs_1400_502_crop/IMG_6341.JPG" rel="slideShow-31">
-                            <img src="media/__thumbs_222_119_crop/IMG_6341.JPG" class="slide" width="222" height="119" />
+                        <div class="prevImage prevImage-<%="2"+cnt.to_s%>"></div>
+                        <div class="nextImage nextImage-<%="2"+cnt.to_s%>"></div>
+
+
+
+                        <div class="roomSlideshow-<%="2"+cnt.to_s%>" data-cycle-swipe="true">
+                          <% thumbs_1400_502 = get_pictures(room.id,'__thumbs_1400_502_crop/') %>
+                          <% thumbs_222_119 = get_pictures(room.id,'__thumbs_222_119_crop/') %>
+                          <% 0.upto(thumbs_222_119.count).each do |fot| %>
+                          <a class='slide' href="<%=thumbs_1400_502[fot]%>" rel="slideShow-<%="2"+cnt.to_s%>">
+                            <img src="<%=thumbs_222_119[fot]%>" class="slide" width="222" height="119" />
                           </a>
-                          <a class='slide' href="media/__thumbs_1400_502_crop/IMG_6437.JPG" rel="slideShow-31">
-                            <img src="media/__thumbs_222_119_crop/IMG_6437.JPG" class="slide" width="222" height="119" />
-                          </a>
-                          <a class='slide' href="media/__thumbs_1400_502_crop/IMG_6346.JPG" rel="slideShow-31">
-                            <img src="media/__thumbs_222_119_crop/IMG_6346.JPG" class="slide" width="222" height="119" />
-                          </a>
+                          <%end%>
+                          <%thumbs_1400_502 =[]%>
+                          <%thumbs_222_119 = []%> 
                         </div><!-- END .roomSlideshow -->             </div><!-- END .itemPreviewImageSection -->
 
                         <div class='itemContent'>
-                          <h3 class="itemContentTitle">Двухместный номер Делюкс с 1 кроватью</h3>
-                          <span class="content"><p>Размер номера 20 м²
-                            Услуги и удобства:
-                            • Бесплатные туалетные принадлежности
-                            • Фен
-                            • Телевизор с плоским экраном
-                            • Шкаф/гардероб
-                            • Отопление
-                            • Кондиционер
-                            • Спутниковые каналы
-                            • Туалетная бумага
-                            • Душ
-                            • Гладильные принадлежности
-                            • Сейф
-                            • Электрический чайник
-                            • Полотенца
-                            • Ковровое покрытие
-                            • Белье
-                            • Холодильник
-                            • Вешалка для одежды
-                            • Балкон
-                            • Вид из окна
-                            • Вид на море
-                            • Вид на город
-                            • Телевизор
-                            • Утюг
-                            • Сушилка для одежды
-                            • Туалет
-                            • Тапочки
-                            • Кофеварка/чайник</p></span>
-                            <div class="read-more toggleContent">Узнать подробности</div>
-                            <div class="read-less toggleContent">Скрыть подробности</div>
-                          </div>
-                          <div class="itemBottomContent">
-                            <a class="booking-link button_bg" href="tel:+79184007026" target="_blank"><span class="booking-link-text">Узнайте цены сейчас!</span></a>           </div><!-- END .itemBottomContent -->
+                          <h3 class="itemContentTitle"><%=room.name%></h3>
+                          <span class="content"><p><%=room.description%></p></span>
+                          <div class="read-more toggleContent">Узнать подробности</div>
+                          <div class="read-less toggleContent">Скрыть подробности</div>
+                        </div>
+                        <div class="itemBottomContent">
+                          <a class="booking-link button_bg" href="tel:+79184007026" target="_blank"><span class="booking-link-text">Узнайте цены сейчас!</span></a>           </div><!-- END .itemBottomContent -->
 
-                            <script type='text/javascript'>
-                              jQuery(function() {
+                          <script type='text/javascript'>
+                            jQuery(function() {
                       if(jQuery().fancybox && $("#layout").css("float")!="none"){ //namespace check
                         var fancyBoxConf = {
                           'transitionIn'  : 'fade',
@@ -197,7 +183,7 @@
                           'speedIn':500,
                           'speedOut':500
                         };
-                        $('a.slide[rel="slideShow-31"]').fancybox(fancyBoxConf);
+                        $('a.slide[rel="slideShow-<%="2"+cnt.to_s%>"]').fancybox(fancyBoxConf);
                       }else{
                         $('img.slide').parent('.slide').removeAttr('href');
                       }
@@ -205,17 +191,17 @@
 
                       jQuery("#mod_pukkaSimpleRooms .category .itemPreview").each(function(){
                         jQuery(this).find('.icon').click(function(){
-                          jQuery(jQuery(this).parent().find('a.slide.cycle-slide-active[rel="slideShow-31"]')).trigger('click');
+                          jQuery(jQuery(this).parent().find('a.slide.cycle-slide-active[rel="slideShow-<%="2"+cnt.to_s%>"]')).trigger('click');
                           return false;
                         });
                       });
-                      jQuery('.roomSlideshow-31').cycle({
+                      jQuery('.roomSlideshow-<%="2"+cnt.to_s%>').cycle({
                         fx:     'fade',
                         speed:  '2000',
                         timeout: 7000,
                         slideResize:0,
-                        prev: '.prevImage-31',
-                        next: '.nextImage-31',
+                        prev: '.prevImage-<%="2"+cnt.to_s%>',
+                        next: '.nextImage-<%="2"+cnt.to_s%>',
                         slides: '> a.slide'
                       });
                     });
@@ -223,418 +209,10 @@
                 </div><!-- END  class="itemPreview alt" -->
               </div> <!--END accordion content -->
             </div><!-- END mod_content resp-tabs-container -->
-          </div><!--END category item1 Стандартный номер с 2 кроватями -->
+          </div><!--END "category item<%=cnt.to_s+ ' ' + room.name + ' '%> <%=p 'selected' if cnt == 1%>" -->
+
         </div><!--END .moduleItemTab-->
-
-
-        <div class="moduleItemTab acc_2">
-          <div class="category item2 Стандартный номер ">
-            <h3 class="accordionTitleModule">Двухместный номер Делюкс с 2 отдельными кроватями <span class="button"></span></h3>
-            <div class="accordion-content">
-              <div class="module1Nav tabs">
-                <ul class="resp-tabs-list">
-                <li id='tab'><span>Двухместный номер Делюкс с 2 отдельными кроватями </span></li>
-                  <style>
-                    .module1Nav.tabs .resp-tabs-list li{width:calc((100% / 2) - .6em); max-width: 150px;}
-                  </style>
-                </ul>
-              </div>
-
-              <div class="mod_content resp-tabs-container">
-                <div  class="itemPreview first" id="item">
-                  <div class="itemPreviewImageSection">
-                    <div class="icon"></div>
-                    <div class="prevImage prevImage-1"></div>
-                    <div class="nextImage nextImage-1"></div>
-                    <div class="roomSlideshow-1" data-cycle-swipe="true">
-                      <a class='slide' href="media/__thumbs_1400_502_crop/IMG_6315.JPG" rel="slideShow-1">
-                        <img src="media/__thumbs_222_119_crop/IMG_6315.JPG" class="slide" width="222" height="119" />
-                      </a>
-                      <a class='slide' href="media/__thumbs_1400_502_crop/IMG_6323.JPG" rel="slideShow-1">
-                        <img src="media/__thumbs_222_119_crop/IMG_6323.JPG" class="slide" width="222" height="119" />
-                      </a>
-                      <a class='slide' href="media/__thumbs_1400_502_crop/IMG_6333.JPG" rel="slideShow-1">
-                        <img src="media/__thumbs_222_119_crop/IMG_6333.JPG" class="slide" width="222" height="119" />
-                      </a>
-                    </div><!-- END .roomSlideshow -->             </div><!-- END .itemPreviewImageSection -->
-
-                    <div class='itemContent'>
-                      <h3 class="itemContentTitle">Двухместный номер Делюкс с 2 отдельными кроватями </h3>
-                      <span class="content"><p>
-Размер номера 20 м²
-Услуги и удобства:
-• Бесплатные туалетные принадлежности
-• Фен
-• Телевизор с плоским экраном
-• Шкаф/гардероб
-• Отопление
-• Кондиционер
-• Спутниковые каналы
-• Туалетная бумага
-• Душ
-• Гладильные принадлежности
-• Сейф
-• Электрический чайник
-• Полотенца
-• Ковровое покрытие
-• Белье
-• Холодильник
-• Вешалка для одежды
-• Балкон
-• Вид из окна
-• Вид на море
-• Вид на город
-• Телевизор
-• Утюг
-• Сушилка для одежды
-• Туалет
-• Тапочки
-• Кофеварка/чайник</p></span>
-                        <div class="read-more toggleContent">Узнать подробности</div>
-                        <div class="read-less toggleContent">Скрыть подробности</div>
-                      </div>
-                      <div class="itemBottomContent">
-                        <a class="booking-link button_bg" href="tel:+79184007026" target="_blank"><span class="booking-link-text">Узнайте цены сейчас!</span></a>           </div><!-- END .itemBottomContent -->
-
-                        <script type='text/javascript'>
-                          jQuery(function() {
-                      if(jQuery().fancybox && $("#layout").css("float")!="none"){ //namespace check
-                        var fancyBoxConf = {
-                          'transitionIn'  : 'fade',
-                          'transitionOut' : 'fade',
-                          'speedIn':500,
-                          'speedOut':500
-                        };
-                        $('a.slide[rel="slideShow-1"]').fancybox(fancyBoxConf);
-                      }else{
-                        $('img.slide').parent('.slide').removeAttr('href');
-                      }
-
-
-                      jQuery("#mod_pukkaSimpleRooms .category .itemPreview").each(function(){
-                        jQuery(this).find('.icon').click(function(){
-                          jQuery(jQuery(this).parent().find('a.slide.cycle-slide-active[rel="slideShow-1"]')).trigger('click');
-                          return false;
-                        });
-                      });
-                      jQuery('.roomSlideshow-1').cycle({
-                        fx:     'fade',
-                        speed:  '2000',
-                        timeout: 7000,
-                        slideResize:0,
-                        prev: '.prevImage-1',
-                        next: '.nextImage-1',
-                        slides: '> a.slide'
-                      });
-                    });
-                  </script>
-                </div><!-- END  class="itemPreview first" -->
-                </div>
-                </div>
-                </div>
-                </div>
-                
-        <div class="moduleItemTab acc_3">
-          <div class="category item3 Семейный номер ">
-            <h3 class="accordionTitleModule">Стандартный трехместный номер<span class="button"></span></h3>
-            <div class="accordion-content">
-              <div class="module31Nav tabs">
-                <ul class="resp-tabs-list">
-                  <li id='tab3'><span>Стандартный трехместный номер</span></li>
-                  <style>
-                    .module31Nav.tabs .resp-tabs-list li{width:calc((100% / 1) - .6em); max-width: 150px;}
-                  </style>
-                </ul>
-              </div>
-
-              <div class="mod_content resp-tabs-container">
-                <div  class="itemPreview" id="item">
-                  <div class="itemPreviewImageSection">
-                    <div class="icon"></div>
-                    <div class="prevImage prevImage-24"></div>
-                    <div class="nextImage nextImage-24"></div>
-                    <div class="roomSlideshow-24" data-cycle-swipe="true">
-                      <a class='slide' href="media/__thumbs_1400_502_crop/IMG_6430.JPG" rel="slideShow-24">
-                        <img src="media/__thumbs_222_119_crop/IMG_6430.JPG" class="slide" width="222" height="119" />
-                      </a>
-                      <a class='slide' href="media/__thumbs_1400_502_crop/IMG_6448.JPG" rel="slideShow-24">
-                        <img src="media/__thumbs_222_119_crop/IMG_6448.JPG" class="slide" width="222" height="119" />
-                      </a>
-                      <a class='slide' href="media/__thumbs_1400_502_crop/IMG_6468.JPG" rel="slideShow-24">
-                        <img src="media/__thumbs_222_119_crop/IMG_6468.JPG" class="slide" width="222" height="119" />
-                      </a>
-                      <a class='slide' href="media/__thumbs_1400_502_crop/IMG_6379.JPG" rel="slideShow-24">
-                        <img src="media/__thumbs_222_119_crop/IMG_6379.JPG" class="slide" width="222" height="119" />
-                      </a>
-                    </div><!-- END .roomSlideshow -->             </div><!-- END .itemPreviewImageSection -->
-
-                    <div class='itemContent'>
-                      <h3 class="itemContentTitle">Стандартный трехместный номер</h3>
-                      <span class="content"><p>Размер номера 25 м²
-Услуги и удобства:
-• Бесплатные туалетные принадлежности
-• Фен
-• Телевизор с плоским экраном
-• Шкаф/гардероб
-• Отопление
-• Кондиционер
-• Спутниковые каналы
-• Туалетная бумага
-• Душ
-• Гладильные принадлежности
-• Сейф
-• Электрический чайник
-• Полотенца
-• Ковровое покрытие
-• Белье
-• Холодильник
-• Вешалка для одежды
-• Балкон
-• Вид из окна
-• Вид на море
-• Вид на город
-• Телевизор
-• Утюг
-• Сушилка для одежды
-• Диван-кровать
-• Туалет
-• Тапочки
-• Кофеварка/чайник</p></span>
-                      <div class="read-more toggleContent">Узнать подробности</div>
-                      <div class="read-less toggleContent">Скрыть подробности</div>
-                    </div>
-                    <div class="itemBottomContent">
-                        <a class="booking-link button_bg" href="tel:+79184007026" target="_blank"><span class="booking-link-text">Узнайте цены сейчас!</span></a>           </div><!-- END .itemBottomContent -->
-                      <script type='text/javascript'>
-                        jQuery(function() {
-                      if(jQuery().fancybox && $("#layout").css("float")!="none"){ //namespace check
-                        var fancyBoxConf = {
-                          'transitionIn'  : 'fade',
-                          'transitionOut' : 'fade',
-                          'speedIn':500,
-                          'speedOut':500
-                        };
-                        $('a.slide[rel="slideShow-24"]').fancybox(fancyBoxConf);
-                      }else{
-                        $('img.slide').parent('.slide').removeAttr('href');
-                      }
-
-
-                      jQuery("#mod_pukkaSimpleRooms .category .itemPreview").each(function(){
-                        jQuery(this).find('.icon').click(function(){
-                          jQuery(jQuery(this).parent().find('a.slide.cycle-slide-active[rel="slideShow-24"]')).trigger('click');
-                          return false;
-                        });
-                      });
-                      jQuery('.roomslideShow-24').cycle({
-                        fx:     'fade',
-                        speed:  '2000',
-                        timeout: 7000,
-                        slideResize:0,
-                        prev: '.prevImage-24',
-                        next: '.nextImage-24',
-                        slides: '> a.slide'
-                      });
-                    });
-                  </script>
-                </div><!-- END  class="itemPreview" -->
-              </div> <!--END accordion content -->
-            </div><!-- END mod_content resp-tabs-container -->
-          </div><!--END category item3 Семейный номер -->
-</div>
-        <div class="moduleItemTab acc_4">
-          <div class="category item3 Семейный номер ">
-            <h3 class="accordionTitleModule">Люкс с 2 спальнями<span class="button"></span></h3>
-            <div class="accordion-content">
-              <div class="module31Nav tabs">
-                <ul class="resp-tabs-list">
-                  <li id='tab4'><span>Люкс с 2 спальнями</span></li>
-                  <style>
-                    .module31Nav.tabs .resp-tabs-list li{width:calc((100% / 1) - .6em); max-width: 150px;}
-                  </style>
-                </ul>
-              </div>
-
-              <div class="mod_content resp-tabs-container">
-                <div  class="itemPreview" id="item">
-                  <div class="itemPreviewImageSection">
-                    <div class="icon"></div>
-                    <div class="prevImage prevImage-22"></div>
-                    <div class="nextImage nextImage-22"></div>
-                    <div class="roomSlideshow-22" data-cycle-swipe="true">
-                      <a class='slide' href="media/__thumbs_1400_502_crop/IMG_6437.JPG" rel="slideShow-22">
-                        <img src="media/__thumbs_222_119_crop/IMG_6437.JPG" class="slide" width="222" height="119" />
-                      </a>
-                      <a class='slide' href="media/__thumbs_1400_502_crop/IMG_6379.JPG" rel="slideShow-22">
-                        <img src="media/__thumbs_222_119_crop/IMG_6379.JPG" class="slide" width="222" height="119" />
-                      </a>
-                      <a class='slide' href="media/__thumbs_1400_502_crop/IMG_6352.JPG" rel="slideShow-22">
-                        <img src="media/__thumbs_222_119_crop/IMG_6352.JPG" class="slide" width="222" height="119" />
-                      </a>
-                      <a class='slide' href="media/__thumbs_1400_502_crop/IMG_6285.JPG" rel="slideShow-22">
-                        <img src="media/__thumbs_222_119_crop/IMG_6285.JPG" class="slide" width="222" height="119" />
-                      </a>
-                    </div><!-- END .roomSlideshow -->             </div><!-- END .itemPreviewImageSection -->
-
-                    <div class='itemContent'>
-                      <h3 class="itemContentTitle">Люкс с 2 спальнями</h3>
-                      <span class="content"><p>
-Услуги и удобства:
-• Бесплатные туалетные принадлежности
-• Фен
-• Телевизор с плоским экраном
-• Шкаф/гардероб
-• Отопление
-• Кондиционер
-• Спутниковые каналы
-• Туалетная бумага
-• Душ
-• Гладильные принадлежности
-• Сейф
-• Электрический чайник
-• Полотенца
-• Ковровое покрытие
-• Гостиный уголок
-• Белье
-• Холодильник
-• Вешалка для одежды
-• Балкон
-• Вид из окна
-• Вид на море
-• Вид на город
-• Телевизор
-• Утюг
-• Диван
-• Сушилка для одежды
-• Туалет
-• Тапочки
-• Кофеварка/чайник</p></span>
-                      <div class="read-more toggleContent">Узнать подробности</div>
-                      <div class="read-less toggleContent">Скрыть подробности</div>
-                    </div>
-                    <div class="itemBottomContent">
-                        <a class="booking-link button_bg" href="tel:+79184007026" target="_blank"><span class="booking-link-text">Узнайте цены сейчас!</span></a>           </div><!-- END .itemBottomContent -->
-
-                      <script type='text/javascript'>
-                        jQuery(function() {
-                      if(jQuery().fancybox && $("#layout").css("float")!="none"){ //namespace check
-                        var fancyBoxConf = {
-                          'transitionIn'  : 'fade',
-                          'transitionOut' : 'fade',
-                          'speedIn':500,
-                          'speedOut':500
-                        };
-                        $('a.slide[rel="slideShow-22"]').fancybox(fancyBoxConf);
-                      }else{
-                        $('img.slide').parent('.slide').removeAttr('href');
-                      }
-
-
-                      jQuery("#mod_pukkaSimpleRooms .category .itemPreview").each(function(){
-                        jQuery(this).find('.icon').click(function(){
-                          jQuery(jQuery(this).parent().find('a.slide.cycle-slide-active[rel="slideShow-22"]')).trigger('click');
-                          return false;
-                        });
-                      });
-                      jQuery('.roomSlideshow-22').cycle({
-                        fx:     'fade',
-                        speed:  '2000',
-                        timeout: 7000,
-                        slideResize:0,
-                        prev: '.prevImage-22',
-                        next: '.nextImage-22',
-                        slides: '> a.slide'
-                      });
-                    });
-                  </script>
-                </div><!-- END  class="itemPreview" -->
-              </div> <!--END accordion content -->
-            </div><!-- END mod_content resp-tabs-container -->
-          </div><!--END category item4 -->
-        </div><!--END .moduleItemTab-->
-
-        <div class="moduleItemTab acc_5">
-          <div class="category item3 Семейный номер ">
-            <h3 class="accordionTitleModule">Апартаменты с видом на море<span class="button"></span></h3>
-            <div class="accordion-content">
-              <div class="module31Nav tabs">
-                <ul class="resp-tabs-list">
-                  <li id='tab5'><span>Апартаменты с видом на море</span></li>
-                  <style>
-                    .module31Nav.tabs .resp-tabs-list li{width:calc((100% / 1) - .6em); max-width: 150px;}
-                  </style>
-                </ul>
-              </div>
-
-              <div class="mod_content resp-tabs-container">
-                <div  class="itemPreview" id="item">
-                  <div class="itemPreviewImageSection">
-                    <div class="icon"></div>
-                    <div class="prevImage prevImage-23"></div>
-                    <div class="nextImage nextImage-23"></div>
-                    <div class="roomSlideshow-23" data-cycle-swipe="true">
-                      <a class='slide' href="media/__thumbs_1400_502_crop/IMG_6240.JPG" rel="slideShow-23">
-                        <img src="media/__thumbs_222_119_crop/IMG_6240.JPG" class="slide" width="222" height="119" />
-                      </a>
-                      <a class='slide' href="media/__thumbs_1400_502_crop/IMG_6430.JPG" rel="slideShow-23">
-                        <img src="media/__thumbs_222_119_crop/IMG_6430.JPG" class="slide" width="222" height="119" />
-                      </a>
-                      <a class='slide' href="media/__thumbs_1400_502_crop/IMG_6252.JPG" rel="slideShow-23">
-                        <img src="media/__thumbs_222_119_crop/IMG_6252.JPG" class="slide" width="222" height="119" />
-                      </a>
-                      <a class='slide' href="media/__thumbs_1400_502_crop/IMG_6341.JPG" rel="slideShow-23">
-                        <img src="media/__thumbs_222_119_crop/IMG_6341.JPG" class="slide" width="222" height="119" />
-                      </a>
-                    </div><!-- END .roomSlideshow -->             </div><!-- END .itemPreviewImageSection -->
-
-                    <div class='itemContent'>
-                      <h3 class="itemContentTitle">Апартаменты с видом на море</h3>
-                      <span class="content"><p>
-Услуги и удобства:
-• Балкон с видом на море</p></span>
-                      <div class="read-more toggleContent">Узнать подробности</div>
-                      <div class="read-less toggleContent">Скрыть подробности</div>
-                    </div>
-                    <div class="itemBottomContent">
-                        <a class="booking-link button_bg" href="tel:+79184007026" target="_blank"><span class="booking-link-text">Узнайте цены сейчас!</span></a>           </div><!-- END .itemBottomContent -->
-
-                      <script type='text/javascript'>
-                        jQuery(function() {
-                      if(jQuery().fancybox && $("#layout").css("float")!="none"){ //namespace check
-                        var fancyBoxConf = {
-                          'transitionIn'  : 'fade',
-                          'transitionOut' : 'fade',
-                          'speedIn':500,
-                          'speedOut':500
-                        };
-                        $('a.slide[rel="slideShow-23"]').fancybox(fancyBoxConf);
-                      }else{
-                        $('img.slide').parent('.slide').removeAttr('href');
-                      }
-
-
-                      jQuery("#mod_pukkaSimpleRooms .category .itemPreview").each(function(){
-                        jQuery(this).find('.icon').click(function(){
-                          jQuery(jQuery(this).parent().find('a.slide.cycle-slide-active[rel="slideShow-23"]')).trigger('click');
-                          return false;
-                        });
-                      });
-                      jQuery('.roomslideShow-23').cycle({
-                        fx:     'fade',
-                        speed:  '2000',
-                        timeout: 7000,
-                        slideResize:0,
-                        prev: '.prevImage-23',
-                        next: '.nextImage-23',
-                        slides: '> a.slide'
-                      });
-                    });
-                  </script>
-                </div><!-- END  class="itemPreview" -->
-              </div> <!--END accordion content -->
-            </div><!-- END mod_content resp-tabs-container -->
-          </div><!--END category item4 -->
-        </div><!--END .moduleItemTab-->
+        <%end%>
 
         <script type="text/javascript">
 
@@ -668,4 +246,5 @@
 
   <!-- </div> -->  <!-- END .wrapper -->
 </div>  <!-- END #content -->
+</div>
 </div>
