@@ -156,7 +156,7 @@
                         <div class="roomSlideshow-<%="2"+cnt.to_s%>" data-cycle-swipe="true">
                           <% thumbs_1400_502 = get_pictures(room.id,'__thumbs_1400_502_crop/') %>
                           <% thumbs_222_119 = get_pictures(room.id,'__thumbs_222_119_crop/') %>
-                          <% 0.upto(thumbs_222_119.count).each do |fot| %>
+                          <% 0.upto(thumbs_222_119.count-1).each do |fot| %>
                           <a class='slide' href="<%=thumbs_1400_502[fot]%>" rel="slideShow-<%="2"+cnt.to_s%>">
                             <img src="<%=thumbs_222_119[fot]%>" class="slide" width="222" height="119" />
                           </a>
