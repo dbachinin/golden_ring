@@ -52,7 +52,7 @@ jQuery(document).ready(function() {
       <a href="#" class="button_bg open"></a>
 <!--       <a href="#" class="close"></a> -->
     </div>  <!-- END .contentButton -->
-    <div class="introText"><%= raw @index.description %>
+    <div class="introText"><%= raw @index.description.split('#')[0] %>
 </div> <!-- END .introText -->
   </div>  <!-- END .wrapper -->
 </div>  <!-- END #content -->
