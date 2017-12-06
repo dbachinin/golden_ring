@@ -46,8 +46,8 @@ jQuery(document).ready(function() {
 
 <div id="content" class="home">
   <div class="wrapper">
-    <h1 class="mainTitle"><span class="homepage-title">Добро пожаловать в отель Golden Ring Hotel</span></h1>
-    <h2 class="seoh2">До пляжа можно дойти всего за 1 минуту. </h2>
+    <h1 class="mainTitle"><span class="homepage-title"><%= @hello.split('|').first%></span></h1>
+    <h2 class="seoh2"><%= @hello.split('|')[1]%></h2>
     <div class="contentButton">
       <a href="#" class="button_bg open"></a>
 <!--       <a href="#" class="close"></a> -->
