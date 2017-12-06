@@ -7,9 +7,9 @@ before_action :authenticate_user!, :except => [:index]
   def index
     @indexpages = Indexpage.all
     @index = Indexpage.first
-    # @descr = @index.description.split('#').first
-    # @hello = @index.description.split('#')[1]
-    # @address = @index.description.split('#')[2]
+    @descr = @index.description.split('#').first
+    @hello = @index.description.split('#')[1]
+    @address = @index.description.split('#')[2]
   end
 
   # GET /indexpages/1

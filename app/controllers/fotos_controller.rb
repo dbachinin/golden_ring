@@ -8,6 +8,10 @@ before_action :authenticate_user!, :except => [:index]
     @fotos = Foto.all
     idd = params[:itemid]||@fotos.first.id
     @item = Foto.find(idd)
+    @index = Indexpage.first
+    @descr = @index.description.split('#').first
+    @hello = @index.description.split('#')[1]
+    @address = @index.description.split('#')[2]
   end
 
   # GET /fotos/1
