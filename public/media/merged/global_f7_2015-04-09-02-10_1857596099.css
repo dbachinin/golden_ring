@@ -183,7 +183,7 @@ div.selector select, div.selector select option {background: #eee!important;}
 
 .specialsRotator ul{ margin: 0; padding: 0; list-style: none; text-align: left; }
 .specialsRotator ul.widget-content li{ width:265px; height:93px; padding:0 15px; text-align: center; opacity: 0;}
-.specialsRotator .packageTitle { display: inline-block; width:100%;  margin-top: 15px;  text-align: center; font-size: 1.3em; font-weight: 400; /* white-space: nowrap; */ overflow: hidden; text-overflow:ellipsis; }
+.specialsRotator .packageTitle { display: inline-block; width:100%;  margin-top: 10px;  text-align: center; font-size: 1.3em; font-weight: 400; /* white-space: nowrap; */ overflow: hidden; text-overflow:ellipsis; }
 .specialsRotator .packageContent { color: #000; font-size: 0.75em; position: relative; width: 100%;/*  -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; line-height: 1.3; */}
 	.specialsRotator .packageContent span{position: relative;width:100%; /*-webkit-transform: translateY(-50%); -moz-transform: translateY(-50%);  -ms-transform: translateY(-50%);  -o-transform: translateY(-50%);  transform: translateY(-50%);*/margin-top:5px;}
 
