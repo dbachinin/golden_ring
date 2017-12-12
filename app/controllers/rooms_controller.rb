@@ -1,7 +1,10 @@
 class RoomsController < ApplicationController
   before_action :set_room, only: [:show, :edit, :update, :destroy]
-before_action :authenticate_user!, :except => [:index]
+before_action :authenticate_user!, :except => [:index, :description_of_payment]
 
+
+  def description_of_payment
+  end
   # GET /rooms
   # GET /rooms.json
   def index

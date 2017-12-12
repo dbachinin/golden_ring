@@ -271,7 +271,7 @@ form.flexibleForm label.fieldLabel{
 <body id="page_photos" class="ru">
 <%elsif request.original_fullpath.include?("rooms")%>
 <body id="page_rooms" class="ru">
-<%elsif request.original_fullpath.include?("locations")%>
+<%elsif request.original_fullpath.include?("locations") or request.original_fullpath.include?("description_of_payment")%>
 <body id="page_location" class="ru">
 <%end%>
 
@@ -300,8 +300,10 @@ form.flexibleForm label.fieldLabel{
 				><%= link_to 'Фотогалерея', fotos_path%></li
 			><li class="shortcut2 item2 itemr6 level1 rooms"
 				><%= link_to 'Номера', rooms_path%></li
-			><li class="shortcut6 item6 itemr2 level1 location"
+			><li class="shortcut3 item3 itemr2 level1 location"
 				><%= link_to 'Расположение', locations_path%></li
+			><li class="shortcu4 item4 itemr1 level1 location"
+			    ><%= link_to 'Публичная оферта', description_of_payment_path%></li
 		></ul>
 		</div>
 		<script type="text/javascript">
@@ -322,7 +324,7 @@ form.flexibleForm label.fieldLabel{
 	<div class="overlay-nav"></div>
 <!-- OtelMS -->
 	
-
+<% if request.original_fullpath != "/description_of_payment" %>
 </div>
 	<div class="specialsRotator">
 				<div class="mod_core widget_rotator widget">
@@ -332,7 +334,7 @@ form.flexibleForm label.fieldLabel{
 			<!-- <div class="packageTitle">Купить он-лайн</div> -->
 			<div class="packageTitleMerch">
 			<%= image_tag "sber.png",id: "sberlogo",align: "top"%>
-				<a target="_blank" href="https://3dsec.sberbank.ru/demopayment/docsite/payform-1.html?token=YRF3C5RFICWISEWFR6GJ&ask=amount&ask=email&ask=%7B%22name%22:%22NomerZakaza%22,%22placeholder%22:%22XXXX/XXX%22,%22label%22:%22%E2%84%96%20%D0%97%D0%B0%D0%BA%D0%B0%D0%B7%D0%B0%22%7D">
+				<a target="_blank" href="https://3dsec.sberbank.ru/demopayment/docsite/payform-1.html?token=tn01n6kcsk856m0elb526233vm&ask=amount&ask=email&ask=%7B%22name%22:%22NomerZakaza%22,%22placeholder%22:%22XXXX/XXX%22,%22label%22:%22%E2%84%96%20%D0%97%D0%B0%D0%BA%D0%B0%D0%B7%D0%B0%22%7D">
 				<button type="button" class="booking-form" style="border: 10px;">ПОКУПКА ОНЛАЙН</button></a>
 
 			</div>
@@ -376,7 +378,7 @@ jQuery(document).ready(function() {
 });
 /* ]]> */
 </script>
-
+<%end%>
 	</div>  <!-- END .specials -->
 <!-- end of OtelMS -->
 <% if notice %>
@@ -743,6 +745,7 @@ $(document).ready(function(){
 <!--30 Queries - 0.074609994888306 seconds -->
 <!--END IF ROOM-->
 <%else%>
+ <% if request.original_fullpath != "description_of_payment"%>
     <iframe id="bookingmask" style="border: 0" 
  src="https://goldenring-book-m.otelms.com/bookit/step1/?inline=true" 
  ></iframe> 
@@ -758,6 +761,7 @@ $(document).ready(function(){
         } 
     }, false); 
 </script>
+<%end%>
 		<div id="footer">
 		<div class="footer-top">
 

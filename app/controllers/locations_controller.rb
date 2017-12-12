@@ -1,9 +1,10 @@
 class LocationsController < ApplicationController
   before_action :set_location, only: [:show, :edit, :update, :destroy]
-before_action :authenticate_user!, :except => [:index]
+before_action :authenticate_user!, :except => [:index, :description_of_payment]
 
-  # GET /locations
-  # GET /locations.json
+
+  def description_of_payment
+  end
   def index
     @locations = Location.all
     @index = Indexpage.first

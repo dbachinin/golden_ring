@@ -1,9 +1,11 @@
 class IndexpagesController < ApplicationController
   before_action :set_indexpage, only: [:show, :edit, :update, :destroy]
-before_action :authenticate_user!, :except => [:index]
+before_action :authenticate_user!, :except => [:index, :description_of_payment]
 
   # GET /indexpages
   # GET /indexpages.json
+  def description_of_payment
+  end
   def index
     @indexpages = Indexpage.all
     @index = Indexpage.first
